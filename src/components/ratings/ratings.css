@@ -1,15 +1,20 @@
-.ratings{
-    font-size: 3rem;
-    cursor: pointer;
+.ratings {
+  font-size: 3rem;
+  cursor: pointer;
 }
-.ratings-color{
-    color:#FFE234;
-    font-size: 3rem;
-    cursor: pointer;
+.ratings-color {
+  color: #ffe234;
+  font-size: 3rem;
+  cursor: pointer;
 }
-.ratings-wrapper{
-    display:flex ;
+.ratings-wrapper {
+  display: flex;
+  flex-direction: column;
 }
-.button-ratings{
-    background-color:white;
+.ratings-wrapper label{
+  display: flex;
+  align-items: center;
+}
+.button-ratings {
+  background-color: white;
 }

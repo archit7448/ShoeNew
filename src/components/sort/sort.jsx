@@ -1,36 +1,40 @@
 import { useData } from "../../context/dataContext";
-import { AiOutlineDown } from "react-icons/ai";
-import {
-  HiOutlineSortAscending,
-  HiOutlineSortDescending,
-} from "react-icons/hi";
+import { IoMdAdd, IoMdRemove } from "react-icons/io";
+import { useState } from "react";
 export const Sort = () => {
-  const { state, dispatch } = useData();
-  const { filter } = state;
-  const { sortBy } = filter;
-  const buttonPrimary = "button button-product button-primary";
-  const buttonSecondary = "button button-product button-secondary";
+  const { dispatch } = useData();
+  const [show, setShow] = useState(false);
   return (
     <div className="sort-container">
-      <h1 className="ratings-heading">Sort By Price</h1>
-      <nav className="sort-wrapper">
-        <label>
-          <input
-            type="radio"
-            name="PriceSort"
-            onClick={() => dispatch({ type: "SORT", payload: "HIGH_TO_LOW" })}
-          />
-          High to low
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="PriceSort"
-            onClick={() => dispatch({ type: "SORT", payload: "LOW_TO_HIGH" })}
-          />
-          Low to high
-        </label>
-      </nav>
+      <div className="filter-type-wrapper">
+        <h3>Sort</h3>
+        <h3
+          className="cursor text-grey"
+          onClick={() => setShow((state) => !state)}
+        >
+          {show ? <IoMdRemove /> : <IoMdAdd />}
+        </h3>
+      </div>
+      {show && (
+        <div className="sort-wrapper">
+          <label>
+            <input
+              type="radio"
+              name="PriceSort"
+              onClick={() => dispatch({ type: "SORT", payload: "high to low" })}
+            />
+            High to low
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="PriceSort"
+              onClick={() => dispatch({ type: "SORT", payload: "low to high" })}
+            />
+            Low to high
+          </label>
+        </div>
+      )}
     </div>
   );
 };

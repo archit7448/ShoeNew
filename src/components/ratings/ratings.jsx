@@ -1,65 +1,51 @@
 import "./ratings.css";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import { useData } from "../../context/dataContext";
+import { useState } from "react";
 export const RatingsComponent = () => {
   const { state, dispatch } = useData();
-  const {filter}  = state
+  const { filter } = state;
   const { ratings } = filter;
+  const arrayRatings = { 1: [1], 2: [1, 2], 3: [1, 2, 3], 4: [1, 2, 3, 4] };
+  const [show, setShow] = useState(false);
   return (
-    <div className="rating-heading-wrapper">
-      <h1 className="ratings-heading">Rating Filter</h1>
-      <div className="ratings-wrapper">
-        <button
-          className="button-ratings"
-          onClick={() => dispatch({ type: "RATING_TOGGLE", payload: 1 })}
+    <div>
+      <div className="filter-type-wrapper">
+        <h3>Ratings</h3>
+        <h3
+          className="cursor text-grey"
+          onClick={() => setShow((state) => !state)}
         >
-          {ratings >= 1 ? (
-            <AiFillStar className="ratings-color" />
-          ) : (
-            <AiOutlineStar className="ratings" />
-          )}
-        </button>
-        <button
-          className="button-ratings"
-          onClick={() => dispatch({ type: "RATING_TOGGLE", payload: 2 })}
-        >
-          {ratings >= 2 ? (
-            <AiFillStar className="ratings-color" />
-          ) : (
-            <AiOutlineStar className="ratings" />
-          )}
-        </button>
-        <button
-          className="button-ratings"
-          onClick={() => dispatch({ type: "RATING_TOGGLE", payload: 3 })}
-        >
-          {ratings >= 3 ? (
-            <AiFillStar className="ratings-color" />
-          ) : (
-            <AiOutlineStar className="ratings" />
-          )}
-        </button>
-        <button
-          className="button-ratings"
-          onClick={() => dispatch({ type: "RATING_TOGGLE", payload: 4 })}
-        >
-          {ratings >= 4 ? (
-            <AiFillStar className="ratings-color" />
-          ) : (
-            <AiOutlineStar className="ratings" />
-          )}
-        </button>
-        <button
-          className="button-ratings"
-          onClick={() => dispatch({ type: "RATING_TOGGLE", payload: 5 })}
-        >
-          {ratings >= 5 ? (
-            <AiFillStar className="ratings-color" />
-          ) : (
-            <AiOutlineStar className="ratings" />
-          )}
-        </button>
+          {show ? <IoMdRemove /> : <IoMdAdd />}
+        </h3>
       </div>
+      {show && (
+        <div className="ratings-wrapper">
+          {Object.keys(arrayRatings).map((value) => {
+            let array = arrayRatings[value];
+            return (
+              <label key={value}>
+                <input
+                  type="radio"
+                  name="ratings"
+                  onClick={() =>
+                    dispatch({ type: "RATING_TOGGLE", payload: value })
+                  }
+                />
+                {array.map((value) => {
+                  return ratings == array.length ? (
+                    <AiFillStar className="ratings-color" key={value} />
+                  ) : (
+                    <AiOutlineStar className="ratings" key={value} />
+                  );
+                })}
+                <h3>& above</h3>
+              </label>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

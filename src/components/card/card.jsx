@@ -55,7 +55,7 @@ export const Card = ({ prop }) => {
   };
   return (
     <div
-      className="card-wrapper card-cart"
+      className="card-cart"
       key={_id}
       onClick={() => navigate(`/product/${_id}`)}
     >
