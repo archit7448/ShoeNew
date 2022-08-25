@@ -1,5 +1,8 @@
 import axios from "axios";
-import { notificationError, notificationSuccess } from "../utility/notify";
+import {
+  notificationError,
+  notifyMessage,
+} from "../utility/notification/notify";
 export const addToWishlist = async (dispatch, product) => {
   try {
     const response = await axios.post(
@@ -12,7 +15,6 @@ export const addToWishlist = async (dispatch, product) => {
       }
     );
     dispatch({ type: "UPDATE_WISHLIST", payload: response.data.wishlist });
-    notificationSuccess("ADDED TO WISHLIST");
   } catch (error) {
     console.log(error);
     notificationError("GET FAILED");
@@ -27,7 +29,7 @@ export const removeFromWishlist = async (dispatch, id) => {
       },
     });
     dispatch({ type: "UPDATE_WISHLIST", payload: response.data.wishlist });
-    notificationSuccess("REMOVED FROM WISHLIST");
+    notifyMessage("Removed");
   } catch (error) {
     console.log(error);
     notificationError("GET FAILED");

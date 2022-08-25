@@ -28,13 +28,18 @@ export const CartCard = ({ prop }) => {
   return (
     <div key={_id}>
       <div className="cart-card-wrapper">
-        <img src={image} alt={title} className="cart-card-img" />
+        <img
+          src={image}
+          alt={title}
+          className={`cart-card-img cursor`}
+          onClick={() => navigate(`/product/${title}`)}
+        />
         <div className="cart-details">
           <div className="flex-row flex-space-between">
             <h2>{title}</h2>
             <h6>
               ₹
-              {location.pathname === "/cart"
+              {location.pathname !== "/wishlist"
                 ? Number(
                     price
                       .split("")
@@ -46,18 +51,21 @@ export const CartCard = ({ prop }) => {
           </div>
           <div className="flex-row flex-space-between flex-center">
             {location.pathname === "/cart" ? <h1>Size: {size}</h1> : <></>}
-            <h2
-              className="cursor"
-              onClick={() =>
-                location.pathname === "/cart"
-                  ? cartRemoveHandler(_id)
-                  : wishlistRemoveHandler(_id)
-              }
-            >
-              <MdDeleteOutline />
-            </h2>
+            {location.pathname !== "/profile" && (
+              <h2
+                className="cursor"
+                onClick={() =>
+                  location.pathname === "/cart"
+                    ? cartRemoveHandler(_id)
+                    : wishlistRemoveHandler(_id)
+                }
+              >
+                <MdDeleteOutline />
+              </h2>
+            )}
           </div>
           <h1>Ratings: {ratings}</h1>
+          {location.pathname === "/profile" && <h1>Quantity : {qty}</h1>}
           {location.pathname === "/cart" ? (
             <div className="quantity-container">
               <button

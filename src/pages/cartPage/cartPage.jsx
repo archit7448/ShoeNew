@@ -5,7 +5,6 @@ import { TotalPrice } from "../../components/totalPrice/totalPrice";
 import "./cartPage.css";
 export const CartPage = () => {
   const { cart, couponPrice } = useData();
-  console.log(couponPrice);
   const totalQuantity = () => {
     return cart.reduce((acc, { qty }) => acc + qty, 0);
   };
@@ -25,7 +24,7 @@ export const CartPage = () => {
             })}
           </div>
           <div className="cart-total">
-            <Coupon />
+            {cart.length > 0 && <Coupon />}
             {cart.length > 0 ? (
               <TotalPrice prop={{ array: cart, coupon: couponPrice }} />
             ) : (

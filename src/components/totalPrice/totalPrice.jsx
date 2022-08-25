@@ -22,7 +22,7 @@ export const TotalPrice = ({ prop }) => {
   };
   return (
     <div className="total-table">
-      <hr />
+      {location.pathname !== "/profile" && <hr />}
       <div className="flex-row flex-space-between">
         <h2>Sub Total </h2>
         <h2>₹{TotalPrice()}</h2>

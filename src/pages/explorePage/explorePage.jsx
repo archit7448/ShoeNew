@@ -75,8 +75,22 @@ export const ProductPage = () => {
           </div>
         </div>
         <hr />
+        <div className="filter-button-wrapper">
+          <button
+            className="clear-button clear-filter-button"
+            onClick={() => dispatch({ type: "CLEAR" })}
+          >
+            Clear All
+          </button>
+          <button
+            className="button-primary button-address button-show"
+            onClick={() => setFilterShow(false)}
+          >
+            Show {PriceData.length} Products
+          </button>
+        </div>
       </div>
-      <section className="product-heading">
+      <section className="product-heading" onClick={() => setFilterShow(false)}>
         <h1 className="cart-heading">Showing Products [{PriceData.length}]:</h1>
         <div className="card-container">
           <div className="flex-row flex-wrap flex-center">
@@ -149,7 +163,10 @@ export const ProductPage = () => {
           </div>
           <button
             className="button button-secondary button-sort"
-            onClick={() => setFilterShow((state) => !state)}
+            onClick={(event) => {
+              setFilterShow((state) => !state);
+              event.stopPropagation();
+            }}
           >
             Sort & Filter
           </button>

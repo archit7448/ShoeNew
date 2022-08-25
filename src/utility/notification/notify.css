@@ -1,0 +1,18 @@
+.toast-container {
+    font-size: 1.6rem;
+    width: 30rem;
+  }
+  .Toastify__toast-container {
+    padding: 0rem 2rem;
+    margin: 0 auto;
+  }
+  .toast-container button{
+    display: none;
+  }
+  @media only screen and (max-width: 480px) {
+    .toast-container {
+      position: relative;
+      width: 30rem;
+      margin: 3rem auto;
+    }
+  }

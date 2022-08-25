@@ -3,10 +3,11 @@
   display: flex;
   flex-direction: column;
   z-index: 0;
+  width: 100%;
 }
 .filters-wrapper {
   display: flex;
-  width: 30rem;
+  width: 35rem;
   height: 100%;
   position: fixed;
   z-index: 9999;
@@ -30,7 +31,7 @@
   align-self: flex-end;
   margin-right: 4rem;
 }
-.filters-wrapper > h2 {
+.filters-wrapper h2 {
   font-size: 2.5rem;
   font-weight: 500;
 }
@@ -73,6 +74,21 @@
 }
 .filters-wrapper hr {
   margin-top: 1rem;
+}
+.button-show {
+  width: 90%;
+}
+.filter-button-wrapper {
+  width: 100%;
+  height: fit-content;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+.filter-button-wrapper .clear-button {
+  width: fit-content;
+  align-self: center;
 }
 .ratings-heading {
   font-size: 2rem;
@@ -139,7 +155,7 @@ hr {
 }
 @media only screen and (max-width: 540px) {
   .filters-wrapper {
-    width: 80%;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 480px) {

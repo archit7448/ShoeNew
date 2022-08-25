@@ -48,10 +48,15 @@ export const PriceFilter = (products, Stateprice) => {
       );
 };
 
+const searchAlgo = (word, string) => {
+  for (let i = 0; i < string.length; i++) {
+    return word.includes(string.slice(0, string.length - i));
+  }
+};
+
 export const SearchFilter = (products, search) => {
-  const FilterArray = [...products].filter(
-    ({ title }) =>
-      title.toLowerCase().slice(0, search.length) === search.toLowerCase()
+  const FilterArray = [...products].filter(({ title }) =>
+    searchAlgo(title.toLowerCase(), search.toLowerCase())
   );
   return search === "" ? [] : FilterArray.slice(0, 3);
 };
