@@ -29,6 +29,7 @@ export const RatingsComponent = () => {
                 <input
                   type="radio"
                   name="ratings"
+                  checked={value === ratings}
                   onClick={() =>
                     dispatch({ type: "RATING_TOGGLE", payload: value })
                   }

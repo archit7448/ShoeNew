@@ -64,6 +64,7 @@ export const ProductPage = () => {
                     <input
                       type="radio"
                       name="PriceFilter"
+                      checked={price === value}
                       onClick={() =>
                         dispatch({ type: "PRICE_FILTER", payload: value })
                       }

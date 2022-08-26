@@ -14,9 +14,7 @@ export const products = [
       "Max Air changed the game in '87. Now, we honour its emerald anniversary (35 years!) with the Nike Air Max 90 SE. Emerald graphics and colours highlight this big landmark, while its classic Waffle outsole and exposed Air cushioning keep you living the legacy in comfort.",
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660047674/air-max-90-se-mens-shoes-2C5LfX_v46nfv.jpg",
-    ratings: 3,
-    inStock: true,
-    fastDelievery: false,
+    ratings: 3.2,
   },
   {
     _id: uuid(),
@@ -27,139 +25,17 @@ export const products = [
     category: "Addidas",
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660066545/Ultraboost_5.0_DNA_Shoes_Black_GV8729_06_standard_cpm707.jpg",
-    ratings: 5,
-    inStock: false,
-    fastDelievery: false,
+    ratings: 4.6,
   },
   {
     _id: uuid(),
-    title: "Nike Air Max 95",
-    price: "13,227",
-    description:
-      "The Nike Air Max 95 Sakura is a nod to the rich history of Japan's influence on American fashion and culture.The Sakura—or cherry blossom—pattern throughout the shoe adds Japanese-inspired elements to the design.This celebration of cultures also has the same Max Air unit cushioning you know and love, so you can embrace that familiar comfort.",
-    category: "Nike",
+    title: "Puma Rebound Future",
+    price: "4,219",
+    description: `Inspired by a performance silhouette, the Rebound Future Cage brings progressive design, street culture elements and optimum comfort to the table. Dynamic and daring, the textile upper includes a caged construction with a see-through window detail, which works alongside the synthetic heel counter to add stability and durability to your ride. Feel cushioned with every step thanks to the plush sockliner and injected CMEVA midsole. You can walk securely due to the full rubber outsole. The oversized PUMA Cat Logo on the vamp pops with attitude to round off this brazen new shoe.`,
+    category: "FILA",
     image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660050426/air-max-95-shoes-FJRr6S_w8uu3x.jpg",
-    ratings: 4,
-    inStock: true,
-    fastDelievery: false,
-  },
-  {
-    _id: uuid(),
-    title: "Nike Air Max 270",
-    price: "13,995",
-    description:
-      "Nike's first lifestyle Air Max brings you style, comfort and big attitude in the Nike Air Max 270.The design draws inspiration from Air Max icons, showcasing Nike's greatest innovation with its large window and fresh array of colours.",
-    category: "Nike",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660066298/air-max-270-shoes-2V5C4p_kgb0mx.jpg",
-    ratings: 4.7,
-    inStock: false,
-    fastDelievery: true,
-  },
-  {
-    _id: uuid(),
-    title: "Nike Zoom Fly 5",
-    price: "14,995",
-    description:
-      "Bridge the gap between your weekend training run and race day in a durable design that can be deployed not just at the starting line of your favourite race but in the days and months after your conquest. It offers comfort and reliability but with a propulsive sensation that'll help you feel fast and fresh. That kind of versatility is uncommon in the running arena. But who said you can't have it all?",
-    category: "Nike",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660057935/zoom-fly-5-road-running-shoes-lkx7Zp_rimud8.jpg",
-    ratings: 4,
-    inStock: true,
-    fastDelievery: false,
-  },
-  {
-    _id: uuid(),
-    title: "Nike ZoomX NEXT% 2",
-    price: "19,695",
-    description:
-      "Continue the next evolution of speed with a racing shoe made to help you chase new goals and records. The Nike ZoomX Vaporfly NEXT% 2 builds on the model racers everywhere love. It helps improve comfort and breathability with a redesigned upper. From a 10K to a marathon, the 2 still has the responsive cushioning and secure support to help push you towards your personal best. This electric design is inspired by the soul and rebellious spirit of Eugene, Tracktown USA, where contenders from all over the world will descend to test themselves against the globe's greatest athletes.",
-    category: "Nike",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660058753/zoomx-vaporfly-next-2-road-racing-shoes-zgvZjF_wwlez1.jpg",
-    ratings: 3.7,
-    inStock: true,
-    fastDelievery: false,
-  },
-  {
-    _id: uuid(),
-    title: "Nike Air Max 270 G",
-    price: "13,495",
-    description:
-      "Look legendary in the Nike Air Max 270 G. The silhouette is a stitch-for-stitch reconstruction of the original big Air icon, with the addition of breathable mesh and innovative traction that performs at the highest level of play.",
-    category: "Nike",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660066393/air-max-270-g-golf-shoe-Z6vCfs_iewcbl.jpg",
-    ratings: 4.7,
-    inStock: true,
-    fastDelievery: false,
-  },
-  {
-    _id: uuid(),
-    title: "Nike Air Max Impact 3",
-    price: "8,195",
-    description:
-      "Influence the game at both ends of the court in the Nike Air Max Impact 3.Ideal for players who create separation with their vertical, it features pressure-tested Max Air cushioning to help absorb impact.Plus, rubber wraps up the sides for added durability and stability.",
-    category: "Nike",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660059368/air-max-impact-3-basketball-shoe-J7Pjjx_puyomx.jpg",
-    ratings: 5,
-    inStock: true,
-    fastDelievery: false,
-  },
-  {
-    _id: uuid(),
-    title: "Nike Air Max Excee",
-    price: "7,995",
-    description:
-      "Inspired by the Nike Air Max 90, the Nike Air Max Excee is a celebration of a classic through a new lens. Elongated lines and distorted proportions on the upper bring the '90s look you love into a new, modern space.",
-    category: "Nike",
-    image:
-      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/cceef956-48a3-49c7-adaa-1e8769c636eb/air-max-excee-shoe-lPbXqt.png",
-    ratings: 3,
-    inStock: true,
-    fastDelievery: true,
-  },
-  {
-    _id: uuid(),
-    title: "Air Jordan 1 Zoom",
-    price: "12,495",
-    description:
-      "Making iconic style even more comfortable. The Air Jordan 1 Zoom Cmft remakes the 1st Air Jordan with lightweight, low-profile cushioning and elements that improve wearability. Leathers and textiles in the upper have a broken-in feel. A lined, padded collar cups the heel for a secure fit.",
-    category: "Jordan",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660060386/air-jordan-1-zoom-cmft-shoes-mDxHSk_kxfgd2.jpg",
-    ratings: 4,
-    inStock: true,
-    fastDelievery: true,
-  },
-  {
-    _id: uuid(),
-    title: "Nike Air Force 1 '07",
-    price: "7,495",
-    description:
-      "The radiance lives on in the Nike Air Force 1 '07, the b-ball OG that puts a fresh spin on what you know best: durably stitched overlays, clean finishes and the perfect amount of flash to make you shine.",
-    category: "Nike",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660060150/air-force-1-07-shoe-WrLlWX_m7soc7.jpg",
-    ratings: 4,
-    inStock: true,
-    fastDelievery: false,
-  },
-  {
-    _id: uuid(),
-    title: "Air Jordan 6 Retro",
-    price: "15,995",
-    description:
-      "MJ's sixth signature shoe debuted during the 1990–1991 season as His Airness battled rivals in pursuit of an elusive first championship.Now, it's back in a variety of colour schemes.Gear up for the 30th anniversary of the Air Jordan 6 with this timeless classic.",
-    category: "Jordan",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660061257/air-jordan-6-retro-shoes-4m3b9d_mdv5zo.jpg",
-    ratings: 3.7,
-    inStock: true,
-    fastDelievery: false,
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660073082/Rebound-Future-Cage-Men-Shoes_izgzug.jpg",
+    ratings: 4.2,
   },
   {
     _id: uuid(),
@@ -171,8 +47,126 @@ export const products = [
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660066175/jordan-1-ko-shoes-RLJcHC_l3cqs1.jpg",
     ratings: 3.3,
-    inStock: true,
-    fastDelievery: false,
+  },
+  {
+    _id: uuid(),
+    title: "Nike Air Max 95",
+    price: "13,227",
+    description:
+      "The Nike Air Max 95 Sakura is a nod to the rich history of Japan's influence on American fashion and culture.The Sakura—or cherry blossom—pattern throughout the shoe adds Japanese-inspired elements to the design.This celebration of cultures also has the same Max Air unit cushioning you know and love, so you can embrace that familiar comfort.",
+    category: "Nike",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660050426/air-max-95-shoes-FJRr6S_w8uu3x.jpg",
+    ratings: 2.1,
+  },
+  {
+    _id: uuid(),
+    title: "Nike Air Max 270",
+    price: "13,995",
+    description:
+      "Nike's first lifestyle Air Max brings you style, comfort and big attitude in the Nike Air Max 270.The design draws inspiration from Air Max icons, showcasing Nike's greatest innovation with its large window and fresh array of colours.",
+    category: "Nike",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660066298/air-max-270-shoes-2V5C4p_kgb0mx.jpg",
+    ratings: 3.9,
+  },
+  {
+    _id: uuid(),
+    title: "Puma Mercedez AMG",
+    price: "4,799",
+    description: `The technology that goes into the cars from the Mercedes-AMG Petronas Motorsport Formula 1 team is mind-boggling. Especially when it comes to aerodynamics. The Mercedes F1 A3ROCAT Unisex Sneakers pay homage to that, with their aerodynamic elements and modern take on the upper. Ideal for driving, or pretty much other activity you care to name.`,
+    category: "Puma",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660072580/Mercedes-AMG-Petronas-F1-A3ROCAT-Men_s-Sneakers_ignj0f.jpg",
+    ratings: 3.2,
+  },
+  {
+    _id: uuid(),
+    title: "Nike Zoom Fly 5",
+    price: "14,995",
+    description:
+      "Bridge the gap between your weekend training run and race day in a durable design that can be deployed not just at the starting line of your favourite race but in the days and months after your conquest. It offers comfort and reliability but with a propulsive sensation that'll help you feel fast and fresh. That kind of versatility is uncommon in the running arena. But who said you can't have it all?",
+    category: "Nike",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660057935/zoom-fly-5-road-running-shoes-lkx7Zp_rimud8.jpg",
+    ratings: 4.1,
+  },
+  {
+    _id: uuid(),
+    title: "Addidas Donovan",
+    price: "5,999",
+    description:
+      "The D.O.N. Issue #3: Stars of Utah shoes from adidas Basketball draw inspiration from the magnificent skies of the place that Donovan Mitchell now calls home. A dark upper features neon highlights of purple and blue inspired by the beautiful nocturnal imagery of the Bonneville Salt Flats, one of the great state of Utah's most visited tourist attractions.",
+    category: "Addidas",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660070107/Donovan_Mitchell_D.O.N._Issue_3_Shoes_-_Stars_of_Utah_Black_GZ5526_06_standard_bdrlir.jpg",
+    ratings: 4.4,
+  },
+  {
+    _id: uuid(),
+    title: "Nike ZoomX NEXT% 2",
+    price: "19,695",
+    description:
+      "Continue the next evolution of speed with a racing shoe made to help you chase new goals and records. The Nike ZoomX Vaporfly NEXT% 2 builds on the model racers everywhere love. It helps improve comfort and breathability with a redesigned upper. From a 10K to a marathon, the 2 still has the responsive cushioning and secure support to help push you towards your personal best. This electric design is inspired by the soul and rebellious spirit of Eugene, Tracktown USA, where contenders from all over the world will descend to test themselves against the globe's greatest athletes.",
+    category: "Nike",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660058753/zoomx-vaporfly-next-2-road-racing-shoes-zgvZjF_wwlez1.jpg",
+    ratings: 3.7,
+  },
+  {
+    _id: uuid(),
+    title: "Nike Air Max 270 G",
+    price: "13,495",
+    description:
+      "Look legendary in the Nike Air Max 270 G. The silhouette is a stitch-for-stitch reconstruction of the original big Air icon, with the addition of breathable mesh and innovative traction that performs at the highest level of play.",
+    category: "Nike",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660066393/air-max-270-g-golf-shoe-Z6vCfs_iewcbl.jpg",
+    ratings: 2.9,
+  },
+  {
+    _id: uuid(),
+    title: "Nike Air Max Impact 3",
+    price: "8,195",
+    description:
+      "Influence the game at both ends of the court in the Nike Air Max Impact 3.Ideal for players who create separation with their vertical, it features pressure-tested Max Air cushioning to help absorb impact.Plus, rubber wraps up the sides for added durability and stability.",
+    category: "Nike",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660059368/air-max-impact-3-basketball-shoe-J7Pjjx_puyomx.jpg",
+    ratings: 4.6,
+  },
+  {
+    _id: uuid(),
+    title: "Nike Air Max Excee",
+    price: "7,995",
+    description:
+      "Inspired by the Nike Air Max 90, the Nike Air Max Excee is a celebration of a classic through a new lens. Elongated lines and distorted proportions on the upper bring the '90s look you love into a new, modern space.",
+    category: "Nike",
+    image:
+      "https://static.nike.com/a/images/t_PDP_864_v1/f_auto,b_rgb:f5f5f5/cceef956-48a3-49c7-adaa-1e8769c636eb/air-max-excee-shoe-lPbXqt.png",
+    ratings: 3,
+  },
+  {
+    _id: uuid(),
+    title: "Air Jordan 1 Zoom",
+    price: "12,495",
+    description:
+      "Making iconic style even more comfortable. The Air Jordan 1 Zoom Cmft remakes the 1st Air Jordan with lightweight, low-profile cushioning and elements that improve wearability. Leathers and textiles in the upper have a broken-in feel. A lined, padded collar cups the heel for a secure fit.",
+    category: "Jordan",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660060386/air-jordan-1-zoom-cmft-shoes-mDxHSk_kxfgd2.jpg",
+    ratings: 3.7,
+  },
+  {
+    _id: uuid(),
+    title: "Nike Air Force 1 '07",
+    price: "7,495",
+    description:
+      "The radiance lives on in the Nike Air Force 1 '07, the b-ball OG that puts a fresh spin on what you know best: durably stitched overlays, clean finishes and the perfect amount of flash to make you shine.",
+    category: "Nike",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660060150/air-force-1-07-shoe-WrLlWX_m7soc7.jpg",
+    ratings: 4.2,
   },
   {
     _id: uuid(),
@@ -183,9 +177,7 @@ export const products = [
     category: "Jordan",
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660065928/air-jordan-1-mid-shoes-zxLK1G_sl4xum.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
+    ratings: 4.6,
   },
   {
     _id: uuid(),
@@ -197,8 +189,6 @@ export const products = [
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660069103/NMD_R1_Primeblue_Shoes_Black_GZ9256_06_standard_yggan7.jpg",
     ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
   },
   {
     _id: uuid(),
@@ -209,9 +199,17 @@ export const products = [
     category: "Addidas",
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660069416/Solarcontrol_Shoes_White_GV8265_06_standard_zpmuvq.jpg",
+    ratings: 3.2,
+  },
+  {
+    _id: uuid(),
+    title: "Puma Caven Rainbow",
+    price: "5,499",
+    description: `A colourful new addition to our Caven family. We've kept the classic 1980s basketball-inspired silhouette, but enhanced the look and feel with rich textures, rainbow-bright stitching and a stacked midsole to bring a fresh energy to this timeless street classic.`,
+    category: "Puma",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660072052/Puma-Caven-Rainbow-Hues-Men-Shoes_cv7shu.jpg",
     ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
   },
   {
     _id: uuid(),
@@ -222,22 +220,7 @@ export const products = [
     category: "Addidas",
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660069952/Adi_Chic_M_Black_EY2926_06_standard_gqoei7.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
-  },
-  {
-    _id: uuid(),
-    title: "Addidas Donovan",
-    price: "5,999",
-    description:
-      "The D.O.N. Issue #3: Stars of Utah shoes from adidas Basketball draw inspiration from the magnificent skies of the place that Donovan Mitchell now calls home. A dark upper features neon highlights of purple and blue inspired by the beautiful nocturnal imagery of the Bonneville Salt Flats, one of the great state of Utah's most visited tourist attractions.",
-    category: "Addidas",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660070107/Donovan_Mitchell_D.O.N._Issue_3_Shoes_-_Stars_of_Utah_Black_GZ5526_06_standard_bdrlir.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
+    ratings: 3.7,
   },
   {
     _id: uuid(),
@@ -248,9 +231,7 @@ export const products = [
     category: "Addidas",
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660070385/Stan_Smith_Shoes_White_GW0490_06_standard_jj1uwi.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
+    ratings: 4.5,
   },
   {
     _id: uuid(),
@@ -261,9 +242,7 @@ export const products = [
     category: "Puma",
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660070970/RBD-Game-Men_s-Sneakers_klhzxm.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
+    ratings: 2.3,
   },
   {
     _id: uuid(),
@@ -275,8 +254,17 @@ export const products = [
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660071212/Slipstream-Mid-Men_s-Sneakers_lwzmc6.jpg",
     ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
+  },
+  {
+    _id: uuid(),
+    title: "Air Jordan 6 Retro",
+    price: "15,995",
+    description:
+      "MJ's sixth signature shoe debuted during the 1990–1991 season as His Airness battled rivals in pursuit of an elusive first championship.Now, it's back in a variety of colour schemes.Gear up for the 30th anniversary of the Air Jordan 6 with this timeless classic.",
+    category: "Jordan",
+    image:
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660061257/air-jordan-6-retro-shoes-4m3b9d_mdv5zo.jpg",
+    ratings: 3.7,
   },
   {
     _id: uuid(),
@@ -286,22 +274,9 @@ export const products = [
     category: "Puma",
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660071864/one8-Virat-Kohli-Softride-Premier-Men_s-Walking-Shoes_m0kwgr.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
+    ratings: 4.8,
   },
-  {
-    _id: uuid(),
-    title: "Puma Caven Rainbow",
-    price: "5,499",
-    description: `A colourful new addition to our Caven family. We've kept the classic 1980s basketball-inspired silhouette, but enhanced the look and feel with rich textures, rainbow-bright stitching and a stacked midsole to bring a fresh energy to this timeless street classic.`,
-    category: "Puma",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660072052/Puma-Caven-Rainbow-Hues-Men-Shoes_cv7shu.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
-  },
+
   {
     _id: uuid(),
     title: "PUMA Skipper",
@@ -310,9 +285,7 @@ export const products = [
     category: "Puma",
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660072260/PUMA-Skipper-Men_s-Sneakers_qge9e4.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
+    ratings: 4.9,
   },
   {
     _id: uuid(),
@@ -322,44 +295,6 @@ export const products = [
     category: "Puma",
     image:
       "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660072449/PUMA-x-COCA-COLA-Slipstream-Sneakers_wf0aup.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
-  },
-  {
-    _id: uuid(),
-    title: "Puma Mercedez AMG",
-    price: "4,799",
-    description: `The technology that goes into the cars from the Mercedes-AMG Petronas Motorsport Formula 1 team is mind-boggling. Especially when it comes to aerodynamics. The Mercedes F1 A3ROCAT Unisex Sneakers pay homage to that, with their aerodynamic elements and modern take on the upper. Ideal for driving, or pretty much other activity you care to name.`,
-    category: "Puma",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660072580/Mercedes-AMG-Petronas-F1-A3ROCAT-Men_s-Sneakers_ignj0f.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
-  },
-  {
-    _id: uuid(),
-    title: "Puma Rebound Future",
-    price: "4,219",
-    description: `Inspired by a performance silhouette, the Rebound Future Cage brings progressive design, street culture elements and optimum comfort to the table. Dynamic and daring, the textile upper includes a caged construction with a see-through window detail, which works alongside the synthetic heel counter to add stability and durability to your ride. Feel cushioned with every step thanks to the plush sockliner and injected CMEVA midsole. You can walk securely due to the full rubber outsole. The oversized PUMA Cat Logo on the vamp pops with attitude to round off this brazen new shoe.`,
-    category: "Puma",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660073082/Rebound-Future-Cage-Men-Shoes_izgzug.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
-  },
-  {
-    _id: uuid(),
-    title: "Puma Rebound Future",
-    price: "4,219",
-    description: `Inspired by a performance silhouette, the Rebound Future Cage brings progressive design, street culture elements and optimum comfort to the table. Dynamic and daring, the textile upper includes a caged construction with a see-through window detail, which works alongside the synthetic heel counter to add stability and durability to your ride. Feel cushioned with every step thanks to the plush sockliner and injected CMEVA midsole. You can walk securely due to the full rubber outsole. The oversized PUMA Cat Logo on the vamp pops with attitude to round off this brazen new shoe.`,
-    category: "FILA",
-    image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660073082/Rebound-Future-Cage-Men-Shoes_izgzug.jpg",
-    ratings: 4.2,
-    inStock: true,
-    fastDelievery: false,
+    ratings: 4.1,
   },
 ];

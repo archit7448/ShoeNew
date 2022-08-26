@@ -2,7 +2,7 @@ import { useData } from "../../context/dataContext";
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import { useState } from "react";
 export const Sort = () => {
-  const { dispatch } = useData();
+  const { dispatch, sortBy } = useData();
   const [show, setShow] = useState(false);
   return (
     <div className="sort-container">
@@ -21,6 +21,7 @@ export const Sort = () => {
             <input
               type="radio"
               name="PriceSort"
+              checked={sortBy === "high to low"}
               onClick={() => dispatch({ type: "SORT", payload: "high to low" })}
             />
             High to low
@@ -29,6 +30,7 @@ export const Sort = () => {
             <input
               type="radio"
               name="PriceSort"
+              checked={sortBy === "low to high"}
               onClick={() => dispatch({ type: "SORT", payload: "low to high" })}
             />
             Low to high
