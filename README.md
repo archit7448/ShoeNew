@@ -4,15 +4,15 @@
 
 <div align="center">
   
-#  MindifyCart
+#  ShoeNew
 
-### MindifyCart is the platform for buying product to enhance your physical and mental health .   
+### MindifyCart is the platform for buying shoes .   
  
  
-https://user-images.githubusercontent.com/87135461/163668279-a3e37f01-9f58-48ae-b8ba-c0a138e6beda.mp4
+
 
   
-# [Live Website](https://mindify-cart.netlify.app/)
+# [Live Website](https://shoenew.netlify.app/)
   
 </div>
 
@@ -28,7 +28,7 @@ https://user-images.githubusercontent.com/87135461/163668279-a3e37f01-9f58-48ae-
 
 - Navigate to wishlist,cart , login and profile page 
 - Logo will navigate to homepage back 
-
+- search Products
 ---
 
 ### From Homepage
@@ -43,10 +43,10 @@ https://user-images.githubusercontent.com/87135461/163668279-a3e37f01-9f58-48ae-
   
    - Sort by Price
    - Category Filter
-   - Slider to price Range 
+   - price Range 
    - Ratings star filter 
 
-- Add items to cart and wishlist cart , Go to Cart and In wishlist navigate to respective pages 
+- Navigate to respective pages 
 - search feature for products 
 - product page for products , navigate on clicking the product image and description 
 
@@ -73,7 +73,7 @@ https://user-images.githubusercontent.com/87135461/163668279-a3e37f01-9f58-48ae-
 
 ## ⚠️ Caution
 
-MindifyCart runs on a mock backend, [MockBee](https://mockbee.netlify.app/). This app runs on mockbackend so when page reloads all the cart and wishlist element will gone from the page .
+ShoeNew runs on a mock backend, [MockBee](https://mockbee.netlify.app/). This app runs on mockbackend so when page reloads all the cart and wishlist element will gone from the page .
 
 ---
 
