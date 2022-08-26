@@ -47,7 +47,6 @@ export const HomePage = () => {
             </div>
           </div>
         </div>
-        {/* <h1 className="categories-heading">Browse Categories</h1> */}
         <div className="categories-type">
           <Genres />
         </div>

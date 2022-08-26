@@ -8,14 +8,12 @@ import {
   Header,
   TotalPrice,
 } from "../../components/index";
-import { useNavigate } from "react-router-dom";
 import { useAddress } from "../../context/address";
 import { useState } from "react";
 import { useData } from "../../context/dataContext";
 export const ProfilePage = () => {
   const { user, LogOutHandler } = useAuth();
   const { Address } = useAddress();
-  const navigate = useNavigate();
   const { order } = useData();
   const [display, setDisplay] = useState(false);
   const addressNavigate = () => {

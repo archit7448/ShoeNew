@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import { useAddress } from "../../context/address";
 import { validateEmail } from "../../utility/emailValidation/email";
 import { useLocation } from "react-router-dom";
@@ -34,21 +34,28 @@ export const AddressComponent = ({ prop }) => {
   const [title, setTitle] = useState(propTitle);
 
   const addAddressHandler = () => {
-    dispatch({
-      type: "ADD_ADDRESS",
-      payload: {
-        title,
-        firstname,
-        lastname,
-        pincode,
-        city,
-        address,
-        state,
-        email,
-        phoneNumber,
-      },
-    });
-    setDisplay(false);
+    if (
+      Address.length > 0 &&
+      Address.find((addressValue) => addressValue.title === title)
+    ) {
+      setAddressState("Please Fill Different Title! Already Taken");
+    } else {
+      dispatch({
+        type: "ADD_ADDRESS",
+        payload: {
+          title,
+          firstname,
+          lastname,
+          pincode,
+          city,
+          address,
+          state,
+          email,
+          phoneNumber,
+        },
+      });
+      setDisplay(false);
+    }
   };
 
   const checkoutHandler = () => {
@@ -92,7 +99,7 @@ export const AddressComponent = ({ prop }) => {
     if (location.pathname !== "/profile") {
       checkoutHandler();
     } else {
-      edit ? updateHandler() : addAddressHandler();
+      edit === false ? updateHandler() : addAddressHandler();
     }
   };
 
@@ -107,11 +114,6 @@ export const AddressComponent = ({ prop }) => {
     event.preventDefault();
     if (title.length < 2) {
       setAddressState("Fill Title!");
-    } else if (
-      Address.length > 0 &&
-      Address.find((addressValue) => addressValue.title === title)
-    ) {
-      setAddressState("Please Fill Different Title! Already Taken");
     } else if (firstname.length < 2) {
       setAddressState("Fill First Name!");
     } else if (lastname.length < 2) {

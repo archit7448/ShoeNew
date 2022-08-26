@@ -61,6 +61,14 @@ const IntialState = {
 
 const toggleDisplay = (state, payload) => {
   const { Address } = state;
+  console.log(
+    Address.map((address) =>
+      address._id === payload._id
+        ? { ...address, edit: !address.edit }
+        : address
+    )
+  );
+  console.log(payload)
   return {
     ...state,
     Address: Address.map((address) =>
@@ -77,7 +85,7 @@ const updateAddress = (state, payload) => {
     ...state,
     Address: Address.map((address) =>
       address._id === payload._id
-        ? { ...payload, edit: !address.display }
+        ? { ...payload, edit: !address.edit }
         : address
     ),
   };

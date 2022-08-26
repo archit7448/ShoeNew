@@ -1,5 +1,4 @@
 import { v4 as uuid } from "uuid";
-import { Images } from "../Images/images";
 /**
  * Product Database can be added here.
  * You can add products of your wish with different attributes
