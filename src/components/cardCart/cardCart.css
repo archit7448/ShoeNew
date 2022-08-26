@@ -6,7 +6,7 @@
   border: 1px solid var(--color-border-primary);
   margin-bottom: 4rem;
 }
-.fit-content{
+.fit-content {
   width: 4rem;
   height: 20rem;
 }
@@ -56,6 +56,12 @@
 }
 .cursor {
   cursor: pointer;
+}
+.quantity-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 10rem;
 }
 @media screen and (max-width: 540px) {
   .cart-section {

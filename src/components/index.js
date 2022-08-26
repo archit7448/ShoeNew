@@ -1,5 +1,4 @@
 export { AddressComponent } from "./address/address";
-export { Card } from "./card/card";
 export { Genres } from "./genres/categories";
 export { Header } from "./header/header";
 export { ProductFilter } from "./productFilter/productFilter";

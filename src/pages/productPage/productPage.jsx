@@ -7,6 +7,7 @@ import { addToCart } from "../../reducers/Cart";
 import { addToWishlist } from "../../reducers/wishlist";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Loader } from "../../utility/loader/loader";
 export const ProductDetail = () => {
   const { productName } = useParams();
   const { cart, wishlist, dispatch } = useData();
@@ -15,11 +16,12 @@ export const ProductDetail = () => {
   const [sizeState, setSizeState] = useState("");
   const [errorState, setErrorState] = useState(false);
   const [shakeState, setShakeState] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const navigate = useNavigate();
   const cartHandler = () => {
     if (token === null) {
       navigate("/signIn");
-    } else if (sizeState === "") {
+    } else if (sizeState === "" && !cart.find((cartItem) => cartItem.title === product.title)) {
       setErrorState(true);
       setShakeState(true);
       setTimeout(() => setShakeState(false), 1000);
@@ -60,12 +62,12 @@ export const ProductDetail = () => {
     (async (productName) => {
       try {
         const response = await axios.get(`/api/products/`);
-        // console.log(response);
         setProductState({
           ...response.data.products.find(
             (product) => product.title === productName
           ),
         });
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -75,12 +77,12 @@ export const ProductDetail = () => {
     (async (productName) => {
       try {
         const response = await axios.get(`/api/products/`);
-        // setProductState({ ...response.data.product });
         setProductState({
           ...response.data.products.find(
             (product) => product.title === productName
           ),
         });
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -90,103 +92,107 @@ export const ProductDetail = () => {
     <main>
       <Header />
       <section>
-        <div className="product-id-page">
-          <div className="product-id-image">
-            <img src={image} alt={title} />{" "}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className="product-id-page">
+            <div className="product-id-image">
+              <img src={image} alt={title} />{" "}
+            </div>
+            <div className="product-id-details">
+              <h1 className="product-id-heading">{title}</h1>
+              <h3 className="product-id-description">{description}</h3>
+              <h2 className="product-id-price">₹ {price}</h2>
+              <div className="product-id-ratings">
+                {ratings >= 1 ? (
+                  <AiFillStar className="ratings-color" />
+                ) : (
+                  <AiOutlineStar className="ratings" />
+                )}
+                {ratings >= 2 ? (
+                  <AiFillStar className="ratings-color" />
+                ) : (
+                  <AiOutlineStar className="ratings" />
+                )}
+                {ratings >= 3 ? (
+                  <AiFillStar className="ratings-color" />
+                ) : (
+                  <AiOutlineStar className="ratings" />
+                )}
+                {ratings >= 4 ? (
+                  <AiFillStar className="ratings-color" />
+                ) : (
+                  <AiOutlineStar className="ratings" />
+                )}
+                {ratings >= 5 ? (
+                  <AiFillStar className="ratings-color" />
+                ) : (
+                  <AiOutlineStar className="ratings" />
+                )}
+              </div>
+              <h1>Size</h1>
+              <div className={`flex-row ${shakeState ? "shake-wrapper" : ""}`}>
+                <div
+                  className={`size-button ${
+                    sizeState === 5 ? "size-selected" : ""
+                  } `}
+                  onClick={() => sizeHandler(5)}
+                >
+                  {" "}
+                  5{" "}
+                </div>
+                <div
+                  className={`size-button ${
+                    sizeState === 6 ? "size-selected" : ""
+                  } `}
+                  onClick={() => sizeHandler(6)}
+                >
+                  {" "}
+                  6{" "}
+                </div>
+                <div
+                  className={`size-button ${
+                    sizeState === 7 ? "size-selected" : ""
+                  } `}
+                  onClick={() => sizeHandler(7)}
+                >
+                  {" "}
+                  7{" "}
+                </div>
+                <div
+                  className={`size-button ${
+                    sizeState === 8 ? "size-selected" : ""
+                  } `}
+                  onClick={() => sizeHandler(8)}
+                >
+                  {" "}
+                  8{" "}
+                </div>
+              </div>
+              {errorState && <h6>Please Select Size</h6>}
+              <div className="product-id-button-wrapper">
+                <button
+                  className="button button-primary product-id-button"
+                  onClick={() => cartHandler()}
+                >
+                  {cart.find((cartItem) => cartItem._id === product._id)
+                    ? "GO TO BAG"
+                    : "ADD TO BAG"}
+                </button>
+                <button
+                  className="button button-secondary product-id-button"
+                  onClick={() => wishlistHandler()}
+                >
+                  {wishlist.find(
+                    (wishlistItem) => wishlistItem._id === product._id
+                  )
+                    ? "IN WISHLIST"
+                    : "WISHLIST"}
+                </button>
+              </div>
+            </div>
           </div>
-          <div className="product-id-details">
-            <h1 className="product-id-heading">{title}</h1>
-            <h3 className="product-id-description">{description}</h3>
-            <h2 className="product-id-price">₹ {price}</h2>
-            <div className="product-id-ratings">
-              {ratings >= 1 ? (
-                <AiFillStar className="ratings-color" />
-              ) : (
-                <AiOutlineStar className="ratings" />
-              )}
-              {ratings >= 2 ? (
-                <AiFillStar className="ratings-color" />
-              ) : (
-                <AiOutlineStar className="ratings" />
-              )}
-              {ratings >= 3 ? (
-                <AiFillStar className="ratings-color" />
-              ) : (
-                <AiOutlineStar className="ratings" />
-              )}
-              {ratings >= 4 ? (
-                <AiFillStar className="ratings-color" />
-              ) : (
-                <AiOutlineStar className="ratings" />
-              )}
-              {ratings >= 5 ? (
-                <AiFillStar className="ratings-color" />
-              ) : (
-                <AiOutlineStar className="ratings" />
-              )}
-            </div>
-            <h1>Size</h1>
-            <div className={`flex-row ${shakeState ? "shake-wrapper" : ""}`}>
-              <div
-                className={`size-button ${
-                  sizeState === 5 ? "size-selected" : ""
-                } `}
-                onClick={() => sizeHandler(5)}
-              >
-                {" "}
-                5{" "}
-              </div>
-              <div
-                className={`size-button ${
-                  sizeState === 6 ? "size-selected" : ""
-                } `}
-                onClick={() => sizeHandler(6)}
-              >
-                {" "}
-                6{" "}
-              </div>
-              <div
-                className={`size-button ${
-                  sizeState === 7 ? "size-selected" : ""
-                } `}
-                onClick={() => sizeHandler(7)}
-              >
-                {" "}
-                7{" "}
-              </div>
-              <div
-                className={`size-button ${
-                  sizeState === 8 ? "size-selected" : ""
-                } `}
-                onClick={() => sizeHandler(8)}
-              >
-                {" "}
-                8{" "}
-              </div>
-            </div>
-            {errorState && <h6>Please Select Size</h6>}
-            <div className="product-id-button-wrapper">
-              <button
-                className="button button-primary product-id-button"
-                onClick={() => cartHandler()}
-              >
-                {cart.find((cartItem) => cartItem._id === product._id)
-                  ? "GO TO BAG"
-                  : "ADD TO BAG"}
-              </button>
-              <button
-                className="button button-secondary product-id-button"
-                onClick={() => wishlistHandler()}
-              >
-                {wishlist.find(
-                  (wishlistItem) => wishlistItem._id === product._id
-                )
-                  ? "IN WISHLIST"
-                  : "WISHLIST"}
-              </button>
-            </div>
-          </div>
-        </div>
+        )}
       </section>
     </main>
   );

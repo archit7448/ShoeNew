@@ -69,7 +69,7 @@ export const CheckoutPage = () => {
    * Order handler => Manage orders
    */
 
-  console.log(paymentMethod);
+
   const orderHandler = () => {
     console.log(paymentMethod);
     if (paymentMethod === "Cash on Delivery") {

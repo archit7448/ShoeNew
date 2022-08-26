@@ -12,11 +12,10 @@ import {
   SignUp,
   CheckoutPage,
   CartPage,
+  PrivateRoute,
+  RestrictedRoute,
+  CheckoutRoute,
 } from "./pages";
-import { PrivateRoute } from "./pages/authPage/privateRoutes";
-import { RestrictedRoute } from "./pages/authPage/restrictedRoutes";
-import { CheckoutRoute } from "./pages/authPage/checkoutRoutes";
-
 const App = () => {
   return (
     <div>

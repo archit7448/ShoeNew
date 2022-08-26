@@ -1,7 +1,5 @@
-import { Coupon, Header } from "../../components";
+import { Coupon, Header, CartCard, TotalPrice } from "../../components";
 import { useData } from "../../context/dataContext";
-import { CartCard } from "../../components/cardCart/cardCart";
-import { TotalPrice } from "../../components/totalPrice/totalPrice";
 import "./cartPage.css";
 export const CartPage = () => {
   const { cart, couponPrice } = useData();
