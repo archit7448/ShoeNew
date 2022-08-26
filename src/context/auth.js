@@ -13,6 +13,7 @@ const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [error, setError] = useState(false);
   const successHandler = () => {
+    setError(false)
     setToken(localStorage.getItem("token"));
     setUser(JSON.parse(localStorage.getItem("user")));
     notifyMessage("SUCCESS!");
@@ -55,6 +56,7 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem("user");
     navigate("/");
     notifyMessage("Logout Succesfully");
+    setError(false)
   };
 
   return (
