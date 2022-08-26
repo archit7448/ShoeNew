@@ -1,15 +1,14 @@
 import { AiOutlineHeart, AiOutlineClose } from "react-icons/ai";
 import { BiShoppingBag, BiUser } from "react-icons/bi";
 import { GoSearch } from "react-icons/go";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./header.css";
 import { useData } from "../../context/dataContext";
 import { SearchFilter } from "../../reducers/filter";
 export const Header = () => {
-  let location = useLocation();
   const { cart, wishlist, search, dispatch, products } = useData();
-  const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  const token = localStorage.getItem("token");
   const cartHandler = () => {
     if (token === null) {
       navigate("/signIn");
@@ -30,21 +29,26 @@ export const Header = () => {
     dispatch({ type: "UPDATE_SEARCH", payload: "" });
   };
   const profileHandler = () => {
-    navigate("/profile");
+    if (token === null) {
+      navigate("/signIn");
+    } else {
+      navigate("/profile");
+    }
   };
   return (
     <header className="navigation">
-      <Link to="/">
-        <div className="logo-header flex-row">
-          <h3 className="logo-name"> ShoeNew</h3>
-          <img
-            src={
-              "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660125441/logo_yve5sf.png"
-            }
-            alt="logo"
-          />
-        </div>
-      </Link>
+      <div
+        className="logo-header flex-row cursor"
+        onClick={() => navigate("/")}
+      >
+        <h3 className="logo-name"> ShoeNew</h3>
+        <img
+          src={
+            "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1660125441/logo_yve5sf.png"
+          }
+          alt="logo"
+        />
+      </div>
       <div className="input-wrapper">
         <input
           type="text"
