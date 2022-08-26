@@ -6,6 +6,10 @@
   border: 1px solid var(--color-border-primary);
   margin-bottom: 4rem;
 }
+.fit-content{
+  width: 4rem;
+  height: 20rem;
+}
 .cart-card-img {
   width: 20%;
   height: 20%;

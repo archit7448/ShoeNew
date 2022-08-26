@@ -1,5 +1,8 @@
 import axios from "axios";
-import { notificationError, notificationSuccess } from "../utility/notify";
+import {
+  notificationError,
+  notifyMessage,
+} from "../utility/notification/notify";
 import { v4 as uuid } from "uuid";
 export const addToCart = async (dispatch, product) => {
   try {
@@ -13,7 +16,6 @@ export const addToCart = async (dispatch, product) => {
       }
     );
     dispatch({ type: "UPDATE_CART", payload: response.data.cart });
-    notificationSuccess("ADDED TO CART");
   } catch (error) {
     console.log(error);
     notificationError("GET FAILED");
@@ -28,14 +30,16 @@ export const removeFromCart = async (dispatch, id) => {
       },
     });
     dispatch({ type: "UPDATE_CART", payload: response.data.cart });
-    notificationSuccess("REMOVED FROM CART");
+    notifyMessage("Removed");
   } catch (error) {
     console.log(error);
     notificationError("GET FAILED");
   }
 };
 
-export const emptyCart = async (dispatch, cart, coupon) => {
+export const emptyCart = async (dispatch, cart, value) => {
+  const { couponPrice, paymentMethod, paymentId, checkoutAddress } = value;
+  console.log(checkoutAddress)
   try {
     const response = await axios.delete(`/api/user/cart`, {
       headers: {
@@ -43,10 +47,17 @@ export const emptyCart = async (dispatch, cart, coupon) => {
       },
     });
     dispatch({ type: "UPDATE_CART", payload: response.data.cart });
-    notificationSuccess("ORDER SUCESSFULL");
+    notifyMessage("ORDER SUCESSFULL");
     dispatch({
       type: "UPDATE_ORDER",
-      payload: { orderArray: cart, couponPrice: coupon, _id: uuid() },
+      payload: {
+        orderArray: cart,
+        couponPrice,
+        paymentId,
+        paymentMethod,
+        checkoutAddress,
+        _id: uuid(),
+      },
     });
     dispatch({ type: "UPDATE_COUPON_PRICE", payload: 0 });
   } catch (error) {
@@ -71,7 +82,6 @@ export const incrementOperater = async (dispatch, id) => {
       }
     );
     dispatch({ type: "UPDATE_CART", payload: response.data.cart });
-    notificationSuccess("INCREMENT SUCCESSFULLY");
   } catch (error) {
     console.log(error);
     notificationError("GET ERROR");
@@ -94,7 +104,6 @@ export const decrementOperater = async (dispatch, id) => {
       }
     );
     dispatch({ type: "UPDATE_CART", payload: response.data.cart });
-    notificationSuccess("DECREMENT SUCCESSFULLY");
   } catch (error) {
     console.log(error);
     notificationError("GET ERROR");

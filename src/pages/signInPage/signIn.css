@@ -1,44 +1,39 @@
-.form-label{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 15rem auto;
 }
-.button-form{
-    margin: 1rem 0;
+.form-wrapper .form {
+  display: flex;
+  align-items: center;
 }
-.form-wrapper{
-    display: flex;
-    justify-content: center;
+.form-wrapper h1 {
+  font-size: 2rem;
 }
-.form-input{
-    border-radius: 2px;
-    border: 2px solid var(--color-grey);
-    width: 100%;
+.form-wrapper input {
+  font-size: 2rem;
+  width: 30rem;
 }
-
-.button-form{
-    width: 80%;
-    padding: 1rem;
-    border-radius: 24px;
+.guest-button {
+  font-size: 1.6rem;
+  color: #777;
+  font-weight: 500;
+  cursor: pointer;
 }
-.heading-form{
-    font-weight: 400;
-    margin: 2rem 0;
-    margin-right: 12rem;
+.button-form {
+  width: 30rem;
+  margin: 1rem 0;
+  padding: 1rem;
 }
-.guest-button{
-    color:var(--color-neon-blue);
-    cursor: pointer;
-    margin-left:12rem;
-    font-size: 1.8rem;
+.form-wrapper h3 {
+  font-size: 1.6rem;
+  margin: 5px;
+  font-weight: 500;
 }
-.signUp-button{
-    color: var(--color-neon-blue);
-   margin: 0rem 1rem;
-   cursor: pointer;
-}
-.flex-row{
-    display: flex;
-    flex-direction: row;
-    font-size: 2rem;
+.signUp-button {
+  font-size: 1.6rem;
+  margin: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  color: black;
 }

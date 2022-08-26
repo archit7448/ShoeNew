@@ -4,13 +4,13 @@ export const intialstate = {
   filter: {
     sortBy: null,
     category: {
-      food: false,
-      movie: false,
-      gym: false,
-      book: false,
+      Nike: false,
+      Addidas: false,
+      Puma: false,
+      Jordan: false,
     },
     ratings: 0,
-    price: 1000,
+    price: 30000,
   },
   encodedToken: localStorage.getItem("token"),
   cart: [],

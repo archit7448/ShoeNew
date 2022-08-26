@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   HomePage,
@@ -28,7 +28,7 @@ const App = () => {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/cart" element={<CartPage />} />
       </Routes>
-      <ToastContainer />
+      <ToastContainer transition={Zoom} />
     </div>
   );
 };

@@ -7,8 +7,7 @@ import {
 import { useData } from "../../context/dataContext";
 import "./checkoutPage.css";
 import { useState, useEffect } from "react";
-import { notificationError, notificationInfo } from "../../utility/notify";
-import { useNavigate } from "react-router-dom";
+import { notificationError } from "../../utility/notification/notify";
 import { useAddress } from "../../context/address";
 import { emptyCart } from "../../reducers/Cart";
 import {
@@ -16,19 +15,20 @@ import {
   incrementOperater,
   removeFromCart,
 } from "../../reducers/Cart";
+import { useNavigate } from "react-router-dom";
 export const CheckoutPage = () => {
   const { cart, couponPrice, dispatch } = useData();
   const [paymentId, setPaymentId] = useState("");
-  const navigate = useNavigate();
   const [addressState, setAddressState] = useState("");
   const { checkoutAddress, dispatch: dispatchAddress, Address } = useAddress();
-  const paymentMethodArray = [
-    "netbanking",
-    "upi",
-    "card",
-    "paylater",
-    "Cash on Delivery",
-  ];
+  const paymentMethodArray = {
+    "Net Banking": "netbanking",
+    UPI: "upi",
+    Card: "card",
+    "Pay Later": "paylater",
+    "Cash on Delivery": "Cash on Delivery",
+  };
+  const navigate = useNavigate();
   const [paymentMethod, setPaymentMethod] = useState("");
   const [paymentState, setpaymentState] = useState(false);
   const [error, setError] = useState(false);
@@ -63,17 +63,37 @@ export const CheckoutPage = () => {
     }
   }, [checkoutAddress]);
 
+  
+
   /**
    * Order handler => Manage orders
    */
 
+  console.log(paymentMethod);
   const orderHandler = () => {
-    placeOrderHandler(totalDiscount().toFixed(0), checkoutAddress);
+    console.log(paymentMethod);
+    if (paymentMethod === "Cash on Delivery") {
+      setPaymentId("Cash On Delivery");
+    } else {
+      placeOrderHandler(totalDiscount().toFixed(0), checkoutAddress);
+    }
   };
 
   useEffect(() => {
     if (paymentId !== "") {
-      emptyCart(dispatch, cart, couponPrice);
+      emptyCart(dispatch, cart, {
+        couponPrice,
+        paymentMethod:
+          paymentMethod === "Cash on Delivery"
+            ? paymentMethod
+            : Object.keys(paymentMethodArray).find(
+                (value) => paymentMethodArray[value] === paymentMethod
+              ),
+        paymentId,
+        checkoutAddress,
+      });
+      setPaymentId("");
+      navigate("/profile");
     }
   }, [paymentId]);
   /**
@@ -99,7 +119,7 @@ export const CheckoutPage = () => {
       "https://checkout.razorpay.com/v1/checkout.js"
     );
     if (!response) {
-      notificationError("not working");
+      notificationError("Not Working");
       return;
     }
 
@@ -142,179 +162,190 @@ export const CheckoutPage = () => {
   return (
     <main className="flex-col">
       <Header />
-      <section className="cart-handler-wrapper">
-        <div className="order-summary">
-          <h1>ORDER DETAILS: [{totalQuantity()}]</h1>
-          <hr />
-          {cart.map(({ _id, title, image, price, size, qty }) => {
-            return (
-              <div key={_id}>
-                <div className="cart-summary">
-                  <img src={image} alt={title} />
-                  <div className="cart-details">
-                    <div className="flex-row">
-                      <h2>{title}</h2>
-                      <h6>₹{price}</h6>
+      {cart.length > 0 ? (
+        <section className="cart-handler-wrapper">
+          <div className="order-summary">
+            <h1>ORDER DETAILS: [{totalQuantity()}]</h1>
+            <hr />
+            {cart.map(({ _id, title, image, price, size, qty }) => {
+              return (
+                <div key={_id}>
+                  <div className="cart-summary">
+                    <img src={image} alt={title} />
+                    <div className="cart-details">
+                      <div className="flex-row">
+                        <h2>{title}</h2>
+                        <h6>₹{price}</h6>
+                      </div>
+                      <h1>SIZE: {size}</h1>
+                      <div className="quantity-container">
+                        <button
+                          className="button button-secondary"
+                          onClick={() =>
+                            qty > 1
+                              ? decreaseHandler(_id)
+                              : cartRemoveHandler(_id)
+                          }
+                        >
+                          -
+                        </button>
+                        <h2 className="card-ratings">{qty}</h2>
+                        <button
+                          className="button button-secondary"
+                          onClick={() => increaseHandler(_id)}
+                        >
+                          +
+                        </button>
+                      </div>
+                      <div>
+                        <button
+                          className="remove-cart-button"
+                          onClick={() => cartRemoveHandler(_id)}
+                        >
+                          Remove
+                        </button>
+                      </div>
+                      <hr />
                     </div>
-                    <h1>SIZE: {size}</h1>
-                    <div className="quantity-container">
-                      <button
-                        className="button button-secondary"
-                        onClick={() =>
-                          qty > 1
-                            ? decreaseHandler(_id)
-                            : cartRemoveHandler(_id)
-                        }
-                      >
-                        -
-                      </button>
-                      <h2 className="card-ratings">{qty}</h2>
-                      <button
-                        className="button button-secondary"
-                        onClick={() => increaseHandler(_id)}
-                      >
-                        +
-                      </button>
-                    </div>
-                    <div>
-                      <button
-                        className="remove-cart-button"
-                        onClick={() => cartRemoveHandler(_id)}
-                      >
-                        Remove
-                      </button>
-                    </div>
-                    <hr />
                   </div>
                 </div>
-              </div>
-            );
-          })}
-          <Coupon />
-          {cart.length > 0 && (
-            <TotalPrice prop={{ array: cart, coupon: couponPrice }} />
-          )}
-        </div>
-        <div className="order-handler-wrapper">
-          <div className="address-wrapper flex-col">
-            <div className="address-heading">
-              <h1>1. ADDRESSES</h1>
-            </div>
-            {Address.length > 0 && !checkoutAddress[0].edit && (
-              <select
-                name="state"
-                value={addressState}
-                onChange={(event) => setCheckoutHandler(event.target.value)}
-              >
-                <option value="checkout">Checkout Address</option>
-                {Address.map(({ _id, title }) => {
-                  return (
-                    <option value={_id} key={_id}>
-                      {title}
-                    </option>
-                  );
-                })}
-              </select>
-            )}
-            {checkoutAddress.map((value) => {
-              return <AddressManager key={value._id} prop={value} />;
+              );
             })}
-          </div>
-          <div className="address-wrapper">
-            <div
-              className={`${
-                checkoutAddress[0].edit
-                  ? "address-heading"
-                  : "address-heading text-grey"
-              }`}
-            >
-              {<h1>2. PAY</h1>}
-            </div>
-            {paymentState ? (
-              <div className="payment-wrapper">
-                {paymentMethodArray.map((value) => {
-                  return (
-                    <label key={value} className="container">
-                      <input
-                        type="radio"
-                        name="paymentMethods"
-                        value={value}
-                        onClick={(event) =>
-                          setPaymentMethod(event.target.value)
-                        }
-                      />
-                      {value}
-                    </label>
-                  );
-                })}
-                {error && (
-                  <h3 className="wrong-color">Please Select Payment Method</h3>
-                )}
-                <button
-                  className="button-primary button-address button-pay"
-                  onClick={() => paymentMethodHanlder()}
-                >
-                  Continue To Review & Pay
-                </button>
-              </div>
-            ) : checkoutAddress[0].edit ? (
-              <>
-                <div className="address-detail-wrapper flex-col">
-                  <div>
-                    <h2>Payment Method:</h2>
-                    <div className="margin-top-1rem">
-                      <h3>{paymentMethod}</h3>
-                      <h3>Amount: ₹ {totalDiscount()}</h3>
-                    </div>
-                  </div>
-                  <button
-                    className="remove-cart-button flex-end"
-                    onClick={() => setpaymentState(() => true)}
-                  >
-                    Edit
-                  </button>
-                </div>
-              </>
-            ) : (
-              <></>
+            <Coupon />
+            {cart.length > 0 && (
+              <TotalPrice prop={{ array: cart, coupon: couponPrice }} />
             )}
           </div>
-          <div className="address-wrapper">
-            <div
-              className={`${
-                !paymentState && checkoutAddress[0].edit
-                  ? "address-heading"
-                  : "address-heading text-grey"
-              }`}
-            >
-              {<h1>3. REVIEW</h1>}
+          <div className="order-handler-wrapper">
+            <div className="address-wrapper flex-col">
+              <div className="address-heading">
+                <h1>1. ADDRESSES</h1>
+              </div>
+              {Address.length > 0 && !checkoutAddress[0].edit && (
+                <select
+                  name="state"
+                  value={addressState}
+                  onChange={(event) => setCheckoutHandler(event.target.value)}
+                >
+                  <option value="checkout">Checkout Address</option>
+                  {Address.map(({ _id, title }) => {
+                    return (
+                      <option value={_id} key={_id}>
+                        {title}
+                      </option>
+                    );
+                  })}
+                </select>
+              )}
+              {checkoutAddress.map((value) => {
+                return <AddressManager key={value._id} prop={value} />;
+              })}
             </div>
-            {!paymentState && checkoutAddress[0].edit ? (
-              <div className="address-detail-wrapper flex-col">
-                <div>
-                  <div className="margin-top-1rem">
-                    <h3>
-                      Please review your information is accurate. Your order
-                      will not be placed until you click "Place Order".
+            <div className="address-wrapper">
+              <div
+                className={`${
+                  checkoutAddress[0].edit
+                    ? "address-heading"
+                    : "address-heading text-grey"
+                }`}
+              >
+                {<h1>2. PAY</h1>}
+              </div>
+              {paymentState ? (
+                <div className="payment-wrapper">
+                  {Object.keys(paymentMethodArray).map((value) => {
+                    return (
+                      <label key={value} className="container">
+                        <input
+                          type="radio"
+                          name="paymentMethods"
+                          value={paymentMethodArray[value]}
+                          onClick={(event) =>
+                            setPaymentMethod(event.target.value)
+                          }
+                        />
+                        {value}
+                      </label>
+                    );
+                  })}
+                  {error && (
+                    <h3 className="wrong-color">
+                      Please Select Payment Method
                     </h3>
-                  </div>
-                  <div className="margin-top-1rem">
-                    <h1>ORDER TOTAL : ₹{totalPrice()}</h1>
-                  </div>
+                  )}
                   <button
                     className="button-primary button-address button-pay"
-                    onClick={() => orderHandler()}
+                    onClick={() => paymentMethodHanlder()}
                   >
-                    Place Order
+                    Continue To Review & Pay
                   </button>
                 </div>
+              ) : checkoutAddress[0].edit ? (
+                <>
+                  <div className="address-detail-wrapper flex-col">
+                    <div>
+                      <h2>Payment Method:</h2>
+                      <div className="margin-top-1rem">
+                        <h3>
+                          {Object.keys(paymentMethodArray).find(
+                            (value) =>
+                              paymentMethodArray[value] === paymentMethod
+                          )}
+                        </h3>
+                        <h3>Amount: ₹ {totalDiscount().toFixed(0)}</h3>
+                      </div>
+                    </div>
+                    <button
+                      className="remove-cart-button flex-end"
+                      onClick={() => setpaymentState(() => true)}
+                    >
+                      Edit
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <></>
+              )}
+            </div>
+            <div className="address-wrapper">
+              <div
+                className={`${
+                  !paymentState && checkoutAddress[0].edit
+                    ? "address-heading"
+                    : "address-heading text-grey"
+                }`}
+              >
+                {<h1>3. REVIEW</h1>}
               </div>
-            ) : (
-              <></>
-            )}
+              {!paymentState && checkoutAddress[0].edit ? (
+                <div className="address-detail-wrapper flex-col">
+                  <div>
+                    <div className="margin-top-1rem">
+                      <h3>
+                        Please review your information is accurate. Your order
+                        will not be placed until you click "Place Order".
+                      </h3>
+                    </div>
+                    <div className="margin-top-1rem">
+                      <h1>ORDER TOTAL : ₹{totalDiscount().toFixed(0)}</h1>
+                    </div>
+                    <button
+                      className="button-primary button-address button-pay"
+                      onClick={() => orderHandler()}
+                    >
+                      Place Order
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <></>
+      )}
     </main>
   );
 };

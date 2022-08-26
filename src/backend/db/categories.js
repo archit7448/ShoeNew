@@ -1,5 +1,4 @@
 import { v4 as uuid } from "uuid";
-import { Images } from "../Images/images";
 /**
  * Category Database can be added here.
  * You can add category of your wish with different attributes
@@ -8,26 +7,26 @@ import { Images } from "../Images/images";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "BOOK",
+    categoryName: "Jordan",
     image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1659519324/daria-nepriakhina-xY55bL5mZAM-unsplash_s7bm7n.jpg",
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1661435197/jordan_rp4l0k.jpg",
   },
   {
     _id: uuid(),
-    categoryName: "MOVIE",
+    categoryName: "Nike",
     image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1659519316/samuel-regan-asante-wMkaMXTJjlQ-unsplash_jjapy1.jpg",
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1661436329/nike-just-do-it_jfk2er.jpg",
   },
   {
     _id: uuid(),
-    categoryName: "FOOD",
+    categoryName: "Puma",
     image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1659519653/growth_in_the_packaged_food_industry_1536x1536_original_ko9nee.jpg",
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1661438498/Image_2_l8aogc.jpg",
   },
   {
     _id: uuid(),
-    categoryName: "GYM",
+    categoryName: "Addidas",
     image:
-      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1659519309/alexandra-tran-fS3tGOkp0xY-unsplash_f34058.jpg",
+      "https://res.cloudinary.com/dqlfw4xi2/image/upload/v1661438865/594x792_B_tcm209-920685_algopi.jpg",
   },
 ];

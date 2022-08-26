@@ -54,13 +54,18 @@ export const ProductDetail = () => {
     setProductState((state) => ({ ...state, size: size }));
   };
 
-  //ForPlaylist
+  //ForProduct
 
   useEffect(() => {
     (async (productName) => {
       try {
-        const response = await axios.get(`/api/products/${productName}`);
-        setProductState({ ...response.data.product });
+        const response = await axios.get(`/api/products/`);
+        // console.log(response);
+        setProductState({
+          ...response.data.products.find(
+            (product) => product.title === productName
+          ),
+        });
       } catch (error) {
         console.log(error);
       }
@@ -69,8 +74,13 @@ export const ProductDetail = () => {
   useEffect(() => {
     (async (productName) => {
       try {
-        const response = await axios.get(`/api/products/${productName}`);
-        setProductState({ ...response.data.product });
+        const response = await axios.get(`/api/products/`);
+        // setProductState({ ...response.data.product });
+        setProductState({
+          ...response.data.products.find(
+            (product) => product.title === productName
+          ),
+        });
       } catch (error) {
         console.log(error);
       }

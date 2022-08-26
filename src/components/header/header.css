@@ -17,6 +17,7 @@
   margin-left: 2rem;
 }
 .logo-name {
+  font-size: 2rem;
   color: var(--color-primary-first);
 }
 .logo-icon {
@@ -64,7 +65,7 @@
 .search-data {
   position: fixed;
   width: 40rem;
-  font-size: 1.2rem;
+  font-size: 2rem;
   display: flex;
   top: 5rem;
   align-self: center;

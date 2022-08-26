@@ -1,10 +1,11 @@
 import { toast } from "react-toastify";
-// import "./notify.css";
+import "./notify.css";
 const notifyMessage = (message) =>
   toast(message, {
     position: "top-center",
+    theme: "dark",
     autoClose: 1000,
-    hideProgressBar: false,
+    hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,
@@ -26,6 +27,7 @@ const notificationError = (message) =>
   toast.error(message, {
     position: "top-center",
     autoClose: 1000,
+    theme: "dark",
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: true,

@@ -1,9 +1,5 @@
 import "./cardProduct.css";
-import {
-  AiOutlineHeart,
-  AiOutlineShoppingCart,
-  AiFillHeart,
-} from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useData } from "../../context/dataContext";
 import { addToCart } from "../../reducers/Cart";
 import { addToWishlist, removeFromWishlist } from "../../reducers/wishlist";
@@ -27,6 +23,7 @@ export const ProductCard = ({ prop }) => {
     e.stopPropagation();
   };
   const wishlistHandler = (e) => {
+    e.stopPropagation();
     if (token === null) {
       navigate("/signIn");
     } else {
@@ -37,11 +34,8 @@ export const ProductCard = ({ prop }) => {
     e.stopPropagation();
   };
   return (
-    <div className="product">
-      <div
-        className="img-wrapper"
-        onClick={() => navigate(`/product/${title}`)}
-      >
+    <div className="product" onClick={() => navigate(`/product/${title}`)}>
+      <div className="img-wrapper">
         <img src={image} alt={title} />
       </div>
       <div
@@ -61,22 +55,6 @@ export const ProductCard = ({ prop }) => {
       <div className="info">
         <div className="title">{title}</div>
         <div className="price">₹{price}</div>
-      </div>
-
-      <div className="actions-wrapper">
-        <button
-          className={`${
-            cart.find((cartItem) => cartItem._id === products._id)
-              ? "button-primary"
-              : "button-secondary"
-          } cart`}
-          onClick={(event) => cartHandler(event)}
-        >
-          <AiOutlineShoppingCart />
-          {cart.find((cartItem) => cartItem._id === products._id)
-            ? "Go To Cart"
-            : "Add To Cart"}
-        </button>
       </div>
     </div>
   );

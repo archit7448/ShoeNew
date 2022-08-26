@@ -3,8 +3,7 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  position: relative;
-  width: 25rem;
+  transform: translateY(-0.45%);
 }
 .button-animation {
   position: absolute;
@@ -22,19 +21,13 @@
   background-color: var(--color-box-shadow);
 }
 .image-categories {
-  width: 25rem;
-  height: 25rem;
+  width: 100%;
+  height: 50rem;
   object-fit: cover;
-  border-radius: 1.6rem;
-  transition: 1s;
 }
-.image-categories:hover {
-  transform: scale(1.2);
-  transition: 1s;
+@media only screen and (max-width: 540px) {
+  .image-categories {
+    width: 100%;
+    height: fit-content;
+  }
 }
-@media only screen and (max-width: 600px) {
-   .image-categories{
-    margin: 2rem 0;
-   }
-}
-

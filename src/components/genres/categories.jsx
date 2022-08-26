@@ -5,8 +5,8 @@ export const Genres = () => {
   const { categories, dispatch } = useData();
   const navigate = useNavigate();
   const categoryHandler = (category) => {
-    dispatch({ type: "TOGGLE_CATEGORY", payload: category.toLowerCase() });
-  dispatch({ type: "UPDATE_FILTER_STATE", payload: true });
+    dispatch({ type: "TOGGLE_CATEGORY", payload: category });
+    dispatch({ type: "UPDATE_FILTER_STATE", payload: true });
     navigate("/products");
   };
   return categories.map(({ categoryName, image, _id }) => {

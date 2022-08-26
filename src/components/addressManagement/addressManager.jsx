@@ -23,7 +23,7 @@ export const AddressManager = ({ prop }) => {
       <div className="address-detail-wrapper">
         <div>
           <h2>
-            {location.pathname === "/profile" 
+            {location.pathname === "/profile"
               ? `${title}:`
               : "Shipping Address:"}
           </h2>
@@ -62,7 +62,7 @@ export const AddressManager = ({ prop }) => {
         <button
           className="remove-cart-button"
           onClick={() =>
-            location === "/profile"
+            location.pathname === "/profile"
               ? dispatch({ type: "TOGGLE_DISPLAY", payload: { _id } })
               : dispatch({ type: "TOGGLE_CHECKOUT_ADDRESS" })
           }
