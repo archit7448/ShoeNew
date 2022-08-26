@@ -35,6 +35,9 @@ export const Header = () => {
       navigate("/profile");
     }
   };
+  const totalQuantity = () => {
+    return cart.reduce((acc, { qty }) => acc + qty, 0);
+  };
   return (
     <header className="navigation">
       <div
@@ -101,7 +104,7 @@ export const Header = () => {
           <BiShoppingBag />
           {cart.length > 0 && (
             <div className="logo-number">
-              {cart.length > 9 ? "9+" : cart.length}
+              {cart.length > 9 ? "9+" : totalQuantity()}
             </div>
           )}
         </div>

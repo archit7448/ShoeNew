@@ -15,6 +15,7 @@
 .product-id-details {
   margin: 1rem 0;
   flex-direction: column;
+  font-family: "slabo 27px", sans-serif;
 }
 .product-id-heading {
   font-size: 7rem;
@@ -22,10 +23,10 @@
 }
 .product-id-description {
   display: flex;
-  color: var(--color-grey);
+  color: #777;
   font-size: 2.5rem;
   flex-wrap: wrap;
-  font-weight: 300;
+  font-weight: 100;
   margin: 3rem 0rem;
 }
 .product-id-details h1 {
@@ -43,6 +44,10 @@
   color: var(--color-grey);
   font-weight: 700;
   margin: 3rem 0;
+}
+.width-100{
+  width: 100vw;
+  height: 70vh;
 }
 .product-id-button-wrapper {
   display: flex;

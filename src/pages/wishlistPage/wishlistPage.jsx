@@ -1,5 +1,4 @@
-import { CartCard } from "../../components/cardCart/cardCart";
-import { Card, Header, WishlistCard } from "../../components/index";
+import { Header, CartCard } from "../../components/index";
 import { useData } from "../../context/dataContext";
 export const WishListPage = () => {
   const { wishlist } = useData();

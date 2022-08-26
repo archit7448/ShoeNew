@@ -7,3 +7,6 @@ export { SignUp } from "./signUpPage/signUp";
 export { ProfilePage } from "./profilePage/profile";
 export { ProductDetail } from "./productPage/productPage";
 export { CartPage } from "./cartPage/cartPage";
+export { PrivateRoute } from "./authPage/privateRoutes";
+export { RestrictedRoute } from "./authPage/restrictedRoutes";
+export { CheckoutRoute } from "./authPage/checkoutRoutes";

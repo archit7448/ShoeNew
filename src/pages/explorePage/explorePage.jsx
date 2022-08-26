@@ -3,6 +3,7 @@ import {
   ProductFilter,
   Sort,
   RatingsComponent,
+  ProductCard,
 } from "../../components/index";
 import { MdOutlineClear } from "react-icons/md";
 import { IoMdAdd, IoMdRemove } from "react-icons/io";
@@ -14,7 +15,6 @@ import {
 } from "../../reducers/filter";
 import "./explorePage.css";
 import { useData } from "../../context/dataContext";
-import { ProductCard } from "../../components/cardProduct/cardProduct";
 import { useState } from "react";
 export const ProductPage = () => {
   const [filterShow, setFilterShow] = useState(false);
