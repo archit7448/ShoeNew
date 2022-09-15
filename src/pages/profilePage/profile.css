@@ -8,8 +8,7 @@
 }
 .button-logout {
   align-self: flex-end;
-  margin: 2rem 0;
-  padding: 2px 2rem;
+  padding: 1rem 2rem;
 }
 .button-addresses {
   padding: 2px 2rem;
@@ -48,6 +47,10 @@
 .order-details-wrapper > hr{
   margin-top: 4rem;
 }
+.profile-wrapper .address-wrapper{
+  width: 70vw;
+}
+
 @media screen and (max-width: 580px) {
   .profile-wrapper .address-wrapper {
     width: 90vw;

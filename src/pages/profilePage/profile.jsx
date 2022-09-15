@@ -41,18 +41,18 @@ export const ProfilePage = () => {
             <div className="address-detail-wrapper flex-col">
               <div className="flex-row">
                 <h2>First Name:</h2>
-                <h2 className="margin-1rem">{user.firstName}</h2>
+                <h3 className="margin-1rem">{user.firstName}</h3>
               </div>
               <div className="flex-row">
                 <h2>Last Name:</h2>
-                <h2 className="margin-1rem">{user.lastName}</h2>
+                <h3 className="margin-1rem">{user.lastName}</h3>
               </div>
               <div className="flex-row">
                 <h2>Email:</h2>
-                <h2 className="margin-1rem">{user.email}</h2>
+                <h3 className="margin-1rem">{user.email}</h3>
               </div>
               <button
-                className="button-primary button-logout"
+                className="button-primary button-address button-logout"
                 onClick={() => LogOutHandler()}
               >
                 Logout <FiLogIn />
@@ -73,10 +73,10 @@ export const ProfilePage = () => {
               <></>
             )}
             <button
-              className="button-primary button-addresses"
+              className="button-primary button-address"
               onClick={() => addressNavigate()}
             >
-              Add New Address
+              Add New Address + 
             </button>
             {display ? (
               <AddressComponent

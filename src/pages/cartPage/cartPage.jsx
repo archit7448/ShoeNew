@@ -3,9 +3,9 @@ import { useData } from "../../context/dataContext";
 import "./cartPage.css";
 export const CartPage = () => {
   const { cart, couponPrice } = useData();
-  const totalQuantity = () => {
-    return cart.reduce((acc, { qty }) => acc + qty, 0);
-  };
+const totalQuantity = () => {
+  return cart.reduce((acc, { qty }) => acc + qty, 0);
+};
   return (
     <main>
       <Header />
