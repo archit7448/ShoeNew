@@ -39,15 +39,15 @@ export const ProfilePage = () => {
               <h1>Profile</h1>
             </div>
             <div className="address-detail-wrapper flex-col">
-              <div className="flex-row">
+              <div className="flex-row name-wrapper">
                 <h2>First Name:</h2>
                 <h3 className="margin-1rem">{user.firstName}</h3>
               </div>
-              <div className="flex-row">
+              <div className="flex-row name-wrapper">
                 <h2>Last Name:</h2>
                 <h3 className="margin-1rem">{user.lastName}</h3>
               </div>
-              <div className="flex-row">
+              <div className="flex-row name-wrapper">
                 <h2>Email:</h2>
                 <h3 className="margin-1rem">{user.email}</h3>
               </div>
