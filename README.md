@@ -70,11 +70,3 @@
 - address management
 
 ---
-
-## ⚠️ Caution
-
-ShoeNew runs on a mock backend, [MockBee](https://mockbee.netlify.app/). This app runs on mockbackend so when page reloads all the cart and wishlist element will gone from the page .
-
----
-
-Learning and growing with [@neogcamp](https://github.com/neogcamp)
